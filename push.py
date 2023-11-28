@@ -1,8 +1,12 @@
 import asyncio
 
+# THIS DOES NOT WORK AT THE MOMENT, LOOK AT THE PREVIOUS COMMIT, I AM EXPERIMENTING HERE!
+
 class Waiter:
     def __await__(self):
-        yield self
+        while True:
+            yield self
+        return "message"
 
 async def b(waiter):
     print("e", await waiter)
