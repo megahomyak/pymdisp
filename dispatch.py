@@ -6,7 +6,7 @@ async def handler(key, waiter, msg):
     print(key, await waiter)
     print(key, await waiter)
 
-async def test():
+async def simulate_messages_coming_in():
     dispatcher = Dispatcher()
     tasks = []
     for index, (key, message) in enumerate([
@@ -58,4 +58,4 @@ class Dispatcher:
             waiter._queue.append(message)
         print("Polls amount:", waiter._polls_amt, "(horrible, right?)")
 
-asyncio.run(test())
+asyncio.run(simulate_messages_coming_in())
