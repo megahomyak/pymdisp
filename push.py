@@ -6,7 +6,6 @@ class Waiter:
 
 async def b(waiter):
     print("e", await waiter)
-    raise Exception()
 
 async def a(waiter):
     print(123, end=" -> ")
@@ -17,7 +16,7 @@ async def a(waiter):
     print("c", await waiter)
     print(0, end=" -> ")
     print("d", await b(waiter))
-    print(1, end=" -> ")
+    print(1)
 
 coro = a(Waiter())
 while True:
