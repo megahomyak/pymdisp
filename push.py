@@ -2,21 +2,21 @@ import asyncio
 
 class Waiter:
     def __await__(self):
-        yield from ["abc"]
+        yield self
 
 async def b(waiter):
-    await waiter
+    print("e", await waiter)
     raise Exception()
 
 async def a(waiter):
     print(123, end=" -> ")
-    await waiter
+    print("a", await waiter)
     print(456, end=" -> ")
-    await asyncio.sleep(0)
+    print("b", await asyncio.sleep(0))
     print(789, end=" -> ")
-    await waiter
+    print("c", await waiter)
     print(0, end=" -> ")
-    await b(waiter)
+    print("d", await b(waiter))
     print(1, end=" -> ")
 
 coro = a(Waiter())
