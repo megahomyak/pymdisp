@@ -545,6 +545,19 @@ files = [
 typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
+name = "pymdisp"
+version = "0.1.0"
+description = ""
+optional = false
+python-versions = "^3.10"
+files = []
+develop = false
+
+[package.source]
+type = "directory"
+url = ".."
+
+[[package]]
 name = "speg"
 version = "0.3"
 description = "A PEG-based parser interpreter with memoization"
@@ -671,4 +684,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "6bb177451a2b6413bb093fc0caac5b1a1ac774bcb09b42195a436f16ae092c14"
+content-hash = "8c588f15ac6a92660a3d5f66d27215dedb8d0f570ae61ab3e3369cafd3d15232"

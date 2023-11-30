@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 m-tg-utils = "^0.1.0"
+pymdisp = { path = ".." }
+aiogram = "^3.2.0"
 
 
 [build-system]
