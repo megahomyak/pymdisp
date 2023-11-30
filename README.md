@@ -8,4 +8,4 @@ pymdisp is a message dispatcher intended for use in Telegram bots and things ali
 
 ## Usage
 
-You can find a live example in [live\_example/bot.py](live_example/bot.py)
+You can find a live example in [live\_example/bot.py](live_example/bot.py). Hopefully, it will inspire you to create your own cool programs!
