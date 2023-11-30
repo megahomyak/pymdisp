@@ -1,33 +1,4 @@
 import asyncio
-from functools import partial
-from typing import Any, Dict
-
-async def handler(key, waiter, message):
-    print(key, message)
-    print(key, await waiter)
-    print(key, await waiter)
-
-async def simulate_messages_coming_in():
-    dispatcher = Dispatcher()
-    tasks = []
-    for index, (key, message) in enumerate([
-        (1, "a"),
-        (2, "b"),
-        (1, "c"),
-        (2, "d"),
-        (1, "e"),
-        (2, "f"),
-        (2, "g"),
-        (2, "h"),
-        (2, "i"),
-    ]):
-        async def task(index, key, message):
-            await asyncio.sleep(index)
-            await dispatcher.dispatch(
-                key, message, partial(handler, key)
-            )
-        tasks.append(task(index, key, message))
-    await asyncio.gather(*tasks)
 
 class Waiter:
 
@@ -48,7 +19,7 @@ class Waiter:
 class Dispatcher:
 
     def __init__(self):
-        self._waiters: Dict[Any, Waiter] = {}
+        self._waiters = {}
 
     async def dispatch(self, key, message, handler):
         try:
@@ -68,5 +39,3 @@ class Dispatcher:
         else:
             waiter._queue.append(message)
             waiter._event.set()
-
-asyncio.run(simulate_messages_coming_in())
